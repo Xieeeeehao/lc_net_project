@@ -1,0 +1,16 @@
+name: myapp
+
+services: 
+  node:
+    image: node
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /app/lc:/home/node/app
+    expose:
+      - "8081"
+    ports: # use if it is necessary to expose the container to the host machine
+      - "8001:3000"
+    command: "npm start"
